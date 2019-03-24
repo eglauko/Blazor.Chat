@@ -1,0 +1,14 @@
+﻿
+<aside>
+    <nav id="sidebar" class="navbar navbar-dark bg-dark">
+        <ul class="list-unstyled">
+            @ChildContent
+        </ul>
+    </nav>
+</aside>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+}

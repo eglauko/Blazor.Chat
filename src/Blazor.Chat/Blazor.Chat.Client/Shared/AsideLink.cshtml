@@ -1,0 +1,21 @@
+﻿
+<li>
+    <NavLink class="nav-link" href="@href" Match="@match">
+        <span class="@icon" aria-hidden="true"></span> @text
+    </NavLink>
+</li>
+
+@functions {
+
+    [Parameter]
+    string text { get; set; }
+
+    [Parameter]
+    string icon { get; set; }
+
+    [Parameter]
+    string href { get; set; }
+
+    [Parameter]
+    NavLinkMatch match { get; set; } = NavLinkMatch.Prefix;
+}

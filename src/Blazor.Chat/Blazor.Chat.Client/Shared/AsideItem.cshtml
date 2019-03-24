@@ -1,0 +1,36 @@
+﻿
+<li>
+    <a onclick="@ToggleCollapse" aria-expanded="false" class="dropdown-toggle @collapsedCss">
+        @text
+    </a>
+    <ul class="collapse @showCss list-unstyled">
+        @ChildContent
+    </ul>
+</li>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string text { get; set; }
+
+    [Parameter]
+    bool active { get; set; }
+
+    bool collapsed = true;
+
+    string collapsedCss => collapsed ? "collapsed" : null;
+    string showCss => collapsed ? null : "show";
+
+    void ToggleCollapse()
+    {
+        collapsed = !collapsed;
+    }
+
+    protected override void OnInit()
+    {
+        collapsed = !active;
+    }
+}

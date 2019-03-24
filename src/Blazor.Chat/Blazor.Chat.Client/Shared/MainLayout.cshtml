@@ -1,15 +1,27 @@
 @inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
+<HeaderNav AppName="Blazor Chat"></HeaderNav>
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-    </div>
+<AsideNav>
+    <AsideItem active="true" text="Início">
+        <AsideLink text="Home" icon="oi oi-home" href="" match="NavLinkMatch.All"></AsideLink>
+        <AsideLink text="Counter" icon="oi oi-plus" href="counter"></AsideLink>
+        <AsideLink text="Fetch data" icon="oi oi-list-rich" href="fetchdata"></AsideLink>
+    </AsideItem>
+    <AsideItem active="false" text="Cadastros">
+        <AsideLink text="Home É" icon="oi oi-home" href="" match="NavLinkMatch.All"></AsideLink>
+        <AsideLink text="Counter É" icon="oi oi-plus" href="counter"></AsideLink>
+        <AsideLink text="Fetch data É" icon="oi oi-list-rich" href="fetchdata"></AsideLink>
+    </AsideItem>
+</AsideNav>
 
-    <div class="content px-4">
-        @Body
+<!-- Begin page content -->
+<main role="main" class="container-fluid" data-no-fluid>
+    @Body
+</main>
+
+<footer class="main bg-secondary">
+    <div class="footer-container text-light" data-no-fluid>
+        <span class="text-light">Place sticky footer content here.</span>
     </div>
-</div>
+</footer>
