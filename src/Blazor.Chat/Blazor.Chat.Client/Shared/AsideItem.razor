@@ -1,0 +1,32 @@
+﻿
+@inject IJSRuntime js;
+
+<li class="aside-item">
+    <a onclick="@ToggleCollapse" class="dropdown-toggle">
+        @text
+    </a>
+    <ul class="list-unstyled collapsible @showCss" ref="items">
+        @ChildContent
+    </ul>
+</li>
+
+@functions {
+
+    [Parameter]
+    RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string text { get; set; }
+
+    [Parameter]
+    bool active { get; set; }
+
+    string showCss => active ? "show" : null;
+
+    private ElementRef items;
+
+    async Task ToggleCollapse()
+    {
+        await js.InvokeAsync<bool>("Collapsible", items);
+    }
+}

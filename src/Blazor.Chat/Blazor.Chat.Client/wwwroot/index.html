@@ -5,11 +5,38 @@
     <meta name="viewport" content="width=device-width" />
     <title>Blazor.Chat.Client</title>
     <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body class="bg-light menu-active">
     <app>Loading... É</app>
-    <script src="_framework/components.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+
+        function ToggleClass(element, cssClass) {
+            var out = false;
+            try {
+                out = element.classList.toggle(cssClass);
+            }
+            catch (err) {
+                console.log(err);
+            }
+            return out;
+        }
+
+        function Collapsible(element) {
+            ToggleClass(element, "active");
+            if (element.classList.contains("show")) {
+                ToggleClass(element, "show");
+                element.style.maxHeight = element.scrollHeight + "px";
+            }
+            if (element.style.maxHeight) {
+                element.style.maxHeight = null;
+            } else {
+                element.style.maxHeight = element.scrollHeight + "px";
+            }
+        }
+
+    </script>
 </body>
 </html>

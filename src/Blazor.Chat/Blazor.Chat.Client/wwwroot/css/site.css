@@ -86,11 +86,33 @@ body.menu-active footer.main > .footer-container {
     width: 100% -250px;
 }
 
-aside a[data-toggle="collapse"] {
-    position: relative;
+aside {
+    transition: all 0.32s;
+    position: fixed;
+    z-index: 1029;
+}
+aside > nav > ul {
+    padding: 60px 0 0 0;
+}
+aside ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
 }
 
-aside a .dropdown-toggle::after {
+aside li.aside-item {
+    cursor: pointer;
+    user-select: none;
+}
+aside li.aside-item > a {
+    padding: 5px;
+    font-size: 1.1em;
+    display: block;
+}
+aside li.aside-item > a:hover {
+    color: #7386D5;
+}
+
+aside li.aside-item::after {
     display: block;
     position: absolute;
     top: 50%;
@@ -98,8 +120,17 @@ aside a .dropdown-toggle::after {
     transform: translateY(-50%);
 }
 
+aside ul.collapsible {
+    transition: max-height 0.32s ease-out;
+    overflow: hidden;
+}
+aside ul.collapsible:not(.show) {
+    max-height: 0;
+}
+
+
 @media (max-width: 768px) {
-    body.menu-active #sidebar {
+    body .menu-active #sidebar {
         margin-left: -250px;
     }
 
@@ -138,35 +169,6 @@ aside a .dropdown-toggle::after {
         width: 100%;
     }
 }
-
-aside {
-    transition: all 0.3s;
-    position: fixed;
-    z-index: 1029;
-}
-
-    aside > nav > ul {
-        padding: 60px 0 0 0;
-    }
-
-    aside ul li a {
-        padding: 5px;
-        font-size: 1.1em;
-        display: block;
-    }
-
-        aside ul li a:hover {
-            color: #7386D5;
-        }
-
-    aside ul li.active > a, a[aria-expanded="true"] {
-        color: #fff;
-    }
-
-    aside ul ul a {
-        font-size: 0.9em !important;
-        padding-left: 30px !important;
-    }
 
 /* 
     W A I T I N G
