@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Blazor.Chat.Client</title>
     <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body class="bg-light menu-active">
-    <app>Loading...</app>
-
+    <app>Loading... É</app>
     <script src="_framework/blazor.webassembly.js"></script>
-
     <script>
 
         function ToggleClass(element, cssClass) {
@@ -27,10 +25,7 @@
         }
 
         function Get(element, property) {
-            var val = element[property];
-            console.log(val);
-            console.log(element);
-            return val;
+            return element[property]
         }
 
         function Collapsible(element) {

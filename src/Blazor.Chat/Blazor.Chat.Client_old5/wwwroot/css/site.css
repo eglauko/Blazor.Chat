@@ -1,4 +1,5 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -90,47 +91,42 @@ aside {
     position: fixed;
     z-index: 1029;
 }
+aside > nav > ul {
+    padding: 60px 0 0 0;
+}
+aside ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+}
 
-    aside > nav > ul {
-        padding: 60px 0 0 0;
-    }
+aside li.aside-item {
+    cursor: pointer;
+    user-select: none;
+}
+aside li.aside-item > a {
+    padding: 5px;
+    font-size: 1.1em;
+    display: block;
+}
+aside li.aside-item > a:hover {
+    color: #7386D5;
+}
 
-    aside ul ul a {
-        font-size: 0.9em !important;
-        padding-left: 30px !important;
-    }
+aside li.aside-item::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
 
-    aside li.aside-item {
-        cursor: pointer;
-        user-select: none;
-    }
-
-        aside li.aside-item > a {
-            padding: 5px;
-            font-size: 1.1em;
-            display: block;
-        }
-
-            aside li.aside-item > a:hover {
-                color: #7386D5;
-            }
-
-        aside li.aside-item::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-    aside ul.collapsible {
-        transition: max-height 0.32s ease-out;
-        overflow: hidden;
-    }
-
-        aside ul.collapsible:not(.show) {
-            max-height: 0;
-        }
+aside ul.collapsible {
+    transition: max-height 0.32s ease-out;
+    overflow: hidden;
+}
+aside ul.collapsible:not(.show) {
+    max-height: 0;
+}
 
 
 @media (max-width: 768px) {
