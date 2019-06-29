@@ -5,7 +5,7 @@
     <a @onclick="@ToggleCollapse" class="dropdown-toggle">
         @text
     </a>
-    <ul class="list-unstyled collapsible @showCss" style="@maxHeight" @ref="items">
+    <ul class="list-unstyled collapsible @showCss" style="max-height:@maxHeight;" @ref="items">
         @ChildContent
     </ul>
 </li>
@@ -23,30 +23,29 @@
 
     string showCss => active ? "active show" : null;
     string maxHeight;
-    bool init;
 
     private ElementRef items;
+
+    protected override void OnInit()
+    {
+        if (maxHeight == null)
+        {
+            maxHeight = active ? string.Empty : "0";
+        }
+        base.OnInit();
+    }
 
     async void ToggleCollapse()
     {
         active = !active;
-        if (maxHeight == null)
+        if (maxHeight == "0" || maxHeight == string.Empty)
         {
-            maxHeight = "max-height:" + await js.InvokeAsync<int>("Get", items, "scrollHeight") + "px;";
+            maxHeight = (await js.InvokeAsync<object>("Get", items, "scrollHeight")).ToString() + "px";
         }
         else
         {
-            maxHeight = null;
+            maxHeight = "0";
         }
-        //await js.InvokeAsync<bool>("Collapsible", items);
-    }
-
-    protected override async Task OnAfterRenderAsync()
-    {
-        if (!init)
-        {
-            init = true;
-            maxHeight = "max-height:" + await js.InvokeAsync<int>("Get", items, "scrollHeight") + "px;";
-        }
+        StateHasChanged();
     }
 }
