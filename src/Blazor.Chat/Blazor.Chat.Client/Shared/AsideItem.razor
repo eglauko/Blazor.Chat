@@ -2,7 +2,7 @@
 @inject IJSRuntime js;
 
 <li class="aside-item">
-    <a @onclick="@ToggleCollapse" class="dropdown-toggle">
+    <a @onclick="ToggleCollapse" class="dropdown-toggle">
         @text
     </a>
     <ul class="list-unstyled collapsible @showCss" style="max-height:@maxHeight;" @ref="items">
@@ -26,21 +26,23 @@
 
     private ElementRef items;
 
-    protected override void OnInit()
+    protected override void OnAfterRender()
     {
         if (maxHeight == null)
         {
-            maxHeight = active ? string.Empty : "0";
+            maxHeight = active ? (js.GetScrollHeight(items) + "px") : "0";
+            if (active)
+                StateHasChanged();
         }
-        base.OnInit();
+        base.OnAfterRender();
     }
 
-    async void ToggleCollapse()
+    void ToggleCollapse()
     {
         active = !active;
-        if (maxHeight == "0" || maxHeight == string.Empty)
+        if (maxHeight == "0")
         {
-            maxHeight = (await js.InvokeAsync<object>("Get", items, "scrollHeight")).ToString() + "px";
+            maxHeight = js.GetScrollHeight(items) + "px";
         }
         else
         {

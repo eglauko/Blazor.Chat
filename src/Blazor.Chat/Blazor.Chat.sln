@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Models", "Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Client.Old5", "Blazor.Chat.Client_old5\Blazor.Chat.Client.Old5.csproj", "{D016A94F-1901-44F3-A026-41AA44745BE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Chat.Client", "Blazor.Chat.Client\Blazor.Chat.Client.csproj", "{9BE757D9-2B92-4B6C-B85F-A7C887635805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Client", "Blazor.Chat.Client\Blazor.Chat.Client.csproj", "{9BE757D9-2B92-4B6C-B85F-A7C887635805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
