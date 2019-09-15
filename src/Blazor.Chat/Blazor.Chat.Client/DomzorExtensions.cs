@@ -11,10 +11,10 @@ namespace Blazor.Chat.Client
             return ((IJSInProcessRuntime)js).Invoke<TValue>(identifier, args);
         }
 
-        public static TReturn Get<TReturn>(this IJSRuntime js, ElementRef el, string property)
+        public static TReturn Get<TReturn>(this IJSRuntime js, ElementReference el, string property)
             => js.Invoke<TReturn>("Get", el, property);
 
-        public static string GetScrollHeight(this IJSRuntime js, ElementRef el)
+        public static string GetScrollHeight(this IJSRuntime js, ElementReference el)
             => js.Get<object>(el, "scrollHeight").ToString();
     }
 }
