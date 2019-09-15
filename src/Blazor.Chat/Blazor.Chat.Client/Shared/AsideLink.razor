@@ -8,14 +8,14 @@
 @code {
 
     [Parameter]
-    string text { get; set; }
+    public string text { get; set; }
 
     [Parameter]
-    string icon { get; set; }
+    public string icon { get; set; }
 
     [Parameter]
-    string href { get; set; }
+    public string href { get; set; }
 
     [Parameter]
-    NavLinkMatch match { get; set; } = NavLinkMatch.Prefix;
+    public NavLinkMatch match { get; set; } = NavLinkMatch.Prefix;
 }

@@ -13,26 +13,25 @@
 @code {
 
     [Parameter]
-    RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    string text { get; set; }
+    public string text { get; set; }
 
     [Parameter]
-    bool active { get; set; }
+    public bool active { get; set; }
 
     string showCss => active ? "active show" : null;
     string maxHeight;
 
-    private ElementRef items;
+    private ElementReference items;
 
-    protected override void OnInit()
+    protected override void OnParametersSet()
     {
         if (maxHeight == null)
         {
             maxHeight = active ? string.Empty : "0";
         }
-        base.OnInit();
     }
 
     async void ToggleCollapse()
