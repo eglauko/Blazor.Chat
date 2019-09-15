@@ -3,49 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Blazor.Chat.Client</title>
+    <title>Blazor.Chat</title>
     <base href="/" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/blazor.chat.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/waiting.css" rel="stylesheet" />
 </head>
 <body class="bg-light menu-active">
-    <app>Loading...</app>
+
+    <app>
+        <div class="row" 
+             style="position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    z-index: 1000000;
+                    opacity: 1;
+                    background-color: #FFF;
+                    -webkit-transition: background-color 0.125s ease-in-out 0s;
+                    -moz-transition: background-color 0.125s ease-in-out 0s;
+                    -o-transition: background-color 0.125s ease-in-out 0s;
+                    transition: background-color 0.125s ease-in-out 0s;
+                    vertical-align: middle;">
+            <div class='spinner-wave align-self-center'><div class='swr-1'></div><div class='swr-2'></div><div class='swr-3'></div><div class='swr-4'></div><div class='swr-5'></div></div>
+        </div>
+    </app>
 
     <script src="_framework/blazor.webassembly.js"></script>
 
-    <script>
+    <script src="js/domzor.js"></script>
+    <script src="js/fa.min.js"></script>
+    <script src="js/fa-solid.min.js"></script>
 
-        function ToggleClass(element, cssClass) {
-            var out = false;
-            try {
-                out = element.classList.toggle(cssClass);
-            }
-            catch (err) {
-                console.log(err);
-            }
-            return out;
-        }
-
-        function Get(element, property) {
-            var val = element[property];
-            console.log(val);
-            console.log(element);
-            return val;
-        }
-
-        function Collapsible(element) {
-            ToggleClass(element, "active");
-            if (element.classList.contains("show")) {
-                ToggleClass(element, "show");
-                element.style.maxHeight = element.scrollHeight + "px";
-            }
-            if (element.style.maxHeight) {
-                element.style.maxHeight = null;
-            } else {
-                element.style.maxHeight = element.scrollHeight + "px";
-            }
-        }
-
-    </script>
 </body>
 </html>

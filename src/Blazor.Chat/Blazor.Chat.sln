@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Models", "Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Client", "Blazor.Chat.Client\Blazor.Chat.Client.csproj", "{9BE757D9-2B92-4B6C-B85F-A7C887635805}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Chat.Client", "Blazor.Chat.Client\Blazor.Chat.Client.csproj", "{9BE757D9-2B92-4B6C-B85F-A7C887635805}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
